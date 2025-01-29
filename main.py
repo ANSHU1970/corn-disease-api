@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 
 model = load_model('corn_model.keras')
-class_names = ['Blight', 'Common Rust', 'Gray Leaf Spot','Healthy']
+class_names = ['Blight', 'Common Rust', 'Gray Leaf Spot', 'Healthy']
 
 app = FastAPI()
 
@@ -67,8 +67,3 @@ async def predict_disease(file: UploadFile = File(...)):
     
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error processing image: {str(e)}")
-
-
-if __name__ == "__main__":
-    import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
