@@ -48,7 +48,7 @@ def predict1(image: Image.Image):
         confidence = round(100 * (np.max(predictions)), 2)
         
         
-        if confidence < 76:
+        if confidence < 36:
             return {"disease": "can't say for sure", "confidence": f"{confidence}%"}
         else:
             return {"disease": result, "confidence": f"{confidence}%"}
